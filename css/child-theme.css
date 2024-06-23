@@ -22312,6 +22312,9 @@ footer .colophon a:hover {
   font-size: var(--fs-400);
   color: var(--col-cream-400);
 }
+.service_nav__content {
+  font-weight: var(--fw-400);
+}
 
 .three_col_cards {
   --_gap: 3rem;
