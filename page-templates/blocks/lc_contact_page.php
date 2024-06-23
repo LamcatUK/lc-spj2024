@@ -1,6 +1,6 @@
 <section class="contact_page">
     <div class="container-xl">
-        <div class="row g-5 mb-4">
+        <div class="row g-5 mb-4 pb-5">
             <div class="col-md-6" data-aos="fade-right">
                 <div class="contact__address mb-4">
                     <h2 class="h3">Our Clinic</h2>
@@ -10,6 +10,12 @@
                     <i class="fa-solid fa-phone"></i>
                     <?=contact_phone()?>
                 </div>
+
+                <div class="contact__socials mb-4">
+                    <h2 class="h4">Connect</h2>
+                    <?=social_icons()?>
+                </div>
+
                 <div class="contact__hours mb-4">
                     <h2 class="h4">Opening Hours</h2>
                     <?=get_field('opening_hours', 'options')?>

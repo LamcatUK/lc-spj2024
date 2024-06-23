@@ -15,7 +15,8 @@ defined('ABSPATH') || exit;
     <div class="container-xl">
         <div class="pre_footer">
             <a class="pre_footer__card"
-                href="<?=get_field('directions_link', 'options')?>">
+                href="<?=get_field('directions_link', 'options')?>"
+                target="_blank">
                 <i class="fa-solid fa-map"></i>
                 <div>
                     <span class="small">Find Us</span>

@@ -22174,6 +22174,21 @@ footer .colophon a:hover {
     grid-template-columns: repeat(2, 1fr);
   }
 }
+.contact__socials .social_icons,
+.contact_page__socials .social_icons {
+  display: flex;
+  gap: 1rem;
+}
+.contact__socials i,
+.contact_page__socials i {
+  font-size: var(--fs-600);
+  color: var(--col-taupe-600);
+  transition: color var(--transition);
+}
+.contact__socials i:hover,
+.contact_page__socials i:hover {
+  color: var(--col-taupe-400);
+}
 .contact__phone,
 .contact_page__phone {
   font-size: var(--fs-600);
@@ -22182,7 +22197,7 @@ footer .colophon a:hover {
 .contact__phone a,
 .contact_page__phone a {
   text-decoration: none;
-  color: var(--col-black);
+  color: var(--col-taupe-600);
 }
 .contact__phone a:hover,
 .contact_page__phone a:hover {

@@ -12,12 +12,27 @@
         }
     }
 
+    &__socials {
+        .social_icons {
+            display: flex;
+            gap: 1rem;
+        }
+        i {
+            font-size: var(--fs-600);
+            color: var(--col-taupe-600);
+            transition: color var(--transition);
+            &:hover {
+                color: var(--col-taupe-400);
+            }
+        }
+    }
+
     &__phone {
         font-size: var(--fs-600);
         font-family: var(--ff-heading);
         a {
             text-decoration: none;
-            color: var(--col-black);
+            color: var(--col-taupe-600);
             &:hover {
                 color: var(--col-taupe-400);
             }
