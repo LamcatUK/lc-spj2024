@@ -3,7 +3,7 @@
 defined('ABSPATH') || exit;
 get_header();
 // $img = get_the_post_thumbnail_url(get_the_ID(),'full');
-$img = get_the_post_thumbnail(get_the_ID(), 'full', array('class' => 'blog__image'));
+$img = get_the_post_thumbnail(get_the_ID(), 'full', array('class' => 'single-blog__image'));
 
 ?>
 <main id="main" class="single-blog">
@@ -23,9 +23,10 @@ if (function_exists('yoast_breadcrumb')) {
     <div class="container-xl">
         <div class="row g-4 pb-4">
             <div class="col-lg-9 order-2">
-                <h1 class="blog__title"><?=get_the_title()?></h1>
+                <h1 class="single-blog__title"><?=get_the_title()?>
+                </h1>
                 <?=$img?>
-                <div class="blog__read">
+                <div class="single-blog__read">
                     <?=get_the_date()?> |
                     <?=estimate_reading_time_in_minutes(get_the_content(), 200, true, true)?>
                 </div>
