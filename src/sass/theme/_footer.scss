@@ -1,0 +1,96 @@
+footer {
+
+    --_underline-colour: var(--col-cream-400);
+
+    // margin-top: 3rem;
+    .container-xl {
+        position: relative;
+    }
+
+    .h4 {
+        color: var(--col-cream-400);
+    }
+    .pre_footer {
+        display: grid;
+        z-index: 999;
+        @media (min-width:992px) {
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: -2.5rem;
+            grid-template-columns: repeat(3,1fr);
+        }
+
+        &__card {
+            padding: 1.5rem 1rem;
+            text-align: center;
+            display: grid;
+            align-items: center;
+            grid-template-columns: 50px auto;
+
+            &:nth-of-type(odd) {
+                background-color: var(--col-taupe-400);
+            }
+            &:nth-of-type(even) {
+                background-color: var(--col-taupe-600);
+            }
+
+            .fa-solid {
+                font-size: 2rem;
+            }
+        }
+    }
+
+    background-color: var(--col-black);
+    color: var(--col-cream-400);
+  
+    font-size: var(--fs-300);
+
+    .row {
+        padding-top: 5rem;
+        padding-bottom: 3rem;
+    }
+
+    .menu {
+        list-style: none;
+        padding-inline-start: 0;
+        li {
+            padding-bottom: 0.5rem;
+        }
+    }
+
+    a {
+        color: var(--col-cream-400);
+        text-decoration: none;
+        &:hover {
+            color: var(--col-copper-400);
+        }
+    }
+
+    .fa-ul li {
+        padding-bottom: 0.5rem;
+    }
+
+    .social_icons {
+        display: flex;
+        gap: 1rem;
+        font-size: var(--fs-600);
+    }
+
+    .colophon {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        padding-block: 1rem;
+        color: var(--col-cream-400);
+        font-size: var(--fs-200);
+        border-top: 1px solid var(--col-cream-400);
+        a {
+            color: var(--col-cream-400);
+            text-decoration: none;
+            &:hover {
+                color: var(--col-copper-400);
+            }
+        }
+    }
+}

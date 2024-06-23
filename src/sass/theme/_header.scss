@@ -1,0 +1,95 @@
+header {
+    .dropdown-menu {
+        --bs-dropdown-link-active-bg: var(--col-taupe-600);
+        --bs-dropdown-border-radius: 0
+    }
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 9999;
+    background-color: var(--col-white);
+
+    transition: top var(--transition);
+    max-width: 100vw;
+
+    &.hidden {
+        top: -110px;
+    }
+
+    .nav-link {
+        font-family: var(--ff-heading);
+        font-size: 24px;
+        padding-block: 1rem;
+        position: relative;
+        &:hover,
+        &:focus-visible,
+        &[aria-current="page"] {
+            color: var(--col-taupe-600);
+            &::before {
+                transform: scale(1);    
+            }
+        }
+        @media (min-width:992px) {
+            padding-block: 0.5rem 0;
+            &::before {
+                content: "";
+                position: absolute;
+                width: 100%;
+                transform: scale(0);
+                height: 2px;
+                bottom: 0;
+                left: 0;
+                background-color: var(--col-taupe-600);
+                transform-origin: center left;
+                transition: transform var(--transition);
+            }
+        }
+    }
+
+    #main-nav {
+        @media (min-width:992px) {
+            .container-xl {
+                align-items: stretch;
+            }
+        }
+    }
+    #topNav {
+        a {
+            text-decoration: none;
+            color: var(--col-taupe-600);
+            &:hover {
+                color: var(--col-taupe-400);
+            }
+        }
+        .topNav_phone {
+            font-size: 17px;
+            font-weight: var(--fw-600);
+            padding: 0.5em 1em;
+            border: 1px solid var(--col-taupe-600);
+            transition: background-color var(--transition), color var(--transition);
+            &:hover {
+                background-color: var(--col-taupe-600);
+                color: var(--col-white) !important;
+            }
+        }
+    }
+}
+.navbar-brand {
+    background-image: url(../img/belmont-logo.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: top left;
+
+    aspect-ratio: 1;
+
+    transition: width var(--transition);
+
+    width: 60px;
+
+    @media (min-width: 992px) {
+        width: 90px;
+    }
+    margin-right: 0;
+}

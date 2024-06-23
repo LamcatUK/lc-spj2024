@@ -1,0 +1,34 @@
+.text-taupe-400 {
+    color: var(--col-taupe-400);
+    --_underline-colour: var(--col-taupe-400);
+}
+
+.bg-grey-100,
+.has-grey-100-background-color {
+    background-color: var(--col-grey-100);
+}
+
+.bg-cream-300,
+.has-cream-300-background-color {
+    background-color: var(--col-cream-300);
+}
+
+.text-cream-300,
+.has-cream-300-color {
+    color: var(--col-cream-300);
+    --_underline-colour: var(--col-cream-300);
+}
+
+.bg-copper-400,
+.has-copper-400-background-color {
+    background-color: var(--col-copper-400);
+}
+
+.bg-copper-600,
+.has-copper-600-background-color {
+    background-color: var(--col-copper-600);
+}
+
+.has-taupe-400-background-color {
+    background-color: var(--col-taupe-400);
+}
