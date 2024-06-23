@@ -19,7 +19,7 @@ defined('ABSPATH') || exit;
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="profile" href="http://gmpg.org/xfn/11">
     <link rel="preload"
-        href="<?=get_stylesheet_directory_uri()?>/fonts/cinzel-v23-latin-regular.woff2"
+        href="<?=get_stylesheet_directory_uri()?>/fonts/cinzel-v23-latin-500.woff2"
         as="font" type="font/woff2" crossorigin="anonymous">
     <link rel="preload"
         href="<?=get_stylesheet_directory_uri()?>/fonts/montserrat-v26-latin-regular.woff2"
