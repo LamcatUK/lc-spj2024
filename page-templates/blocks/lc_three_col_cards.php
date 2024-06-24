@@ -22,7 +22,7 @@ while(have_rows('cards')) {
                 <?php
                 if (get_sub_field('icon') ?? null) {
                     ?>
-                <img src="<?=get_sub_field('icon')?>"
+                <img src="<?=get_sub_field('icon')?>" alt=""
                     class="three_col_cards__icon">
                 <?php
                 }
