@@ -178,7 +178,6 @@ add_shortcode('timely_button', function () {
 function extract_pricing_table_data($block_data) {
     $offers = [];
     $product_count = $block_data['products'];
-    $featured_image_url = get_the_post_thumbnail_url(); // Get the featured image URL
 
     for ($i = 0; $i < $product_count; $i++) {
         $product_title = $block_data["products_{$i}_title"];
@@ -214,8 +213,7 @@ function extract_pricing_table_data($block_data) {
                     ],
                     "telephone" => parse_phone(get_field('contact_phone', 'options'))
                 ],
-                "name" => "{$product_title} - {$description}",
-                "image" => $featured_image_url
+                "name" => "{$product_title} - {$description}"
             ];
 
         }
@@ -247,12 +245,14 @@ function generate_pricing_table_schema() {
     // Get all blocks on the page
     $blocks = parse_blocks(get_the_content());
     $offers = get_pricing_table_data_from_blocks($blocks);
-
+    $featured_image_url = get_the_post_thumbnail_url(); // Get the featured image URL
+    
     $schema = [
         "@context" => "https://schema.org",
         "@type" => "Product",
-        "name" => "Laser Hair Removal",
+        "name" => get_the_title(),
         "description" => "Effective and long-lasting hair removal using advanced laser technology.",
+        "image" => $featured_image_url,
         "url" => get_permalink(),
         "brand" => [
             "@type" => "Brand",
