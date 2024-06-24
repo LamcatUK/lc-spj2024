@@ -56,25 +56,60 @@ if (get_field('bing_site_verification', 'options')) {
 if (is_front_page() || is_page('contact-us')) {
     ?>
     <script type="application/ld+json">
-        {
-            "@context": "http://schema.org",
-            "@type": "Organization",
-            "url": "<?=get_site_url()?>",
-            "name": "Belmont Skin and Laser Clinic",
-            "legalName": "Belmont Clinic",
-            "description": "---",
-            "logo": "<?=get_stylesheet_directory_uri()?>/img/belmont-logo-full.png",
-            "sameAs": [
-                "https://twitter.com/",
-                "https://www.linkedin.com/",
-                "https://www.instagram.com/"
-            ],
-            "contactPoint": {
-                "@type": "ContactPoint",
-                "telephone": "<?=get_field('contact_phone', 'options')?>",
-                "contactType": "Customer service"
-            }
-        }
+    {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "Belmont Skin and Laser Clinic",
+  "image": "<?=get_stylesheet_directory_uri()?>/img/belmont-logo-full.png",
+  "@id": "https://belmontskinandlaserclinic.co.uk",
+  "url": "https://belmontskinandlaserclinic.co.uk",
+  "telephone": "<?=parse_phone(get_field('contact_phone', 'options'))?>",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Belmont, Storrington Road",
+    "addressLocality": "Thakeham",
+    "addressRegion": "West Sussex",
+    "postalCode": "RH20 3NA",
+    "addressCountry": "GB"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 50.924132,
+    "longitude": -0.435876
+  },
+  "openingHoursSpecification": [
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday"
+      ],
+      "opens": "08:00",
+      "closes": "17:00"
+    },
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": "Saturday",
+      "opens": "09:00",
+      "closes": "15:00"
+    }
+  ],
+  "sameAs": [
+    "https://www.instagram.com/belmont_skin_and_laser/",
+    "https://www.facebook.com/belmontskinandlaser/"
+  ],
+  "priceRange": "$$",
+  "servesCuisine": "Beauty Services",
+  "description": "Belmont Skin and Laser Clinic offers advanced skincare and laser treatments to help you look and feel your best.",
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "telephone": "<?=parse_phone(get_field('contact_phone', 'options'))?>",
+    "contactType": "Customer Service"
+  }
+}
     </script>
     <?php
 }
