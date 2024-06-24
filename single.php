@@ -24,7 +24,8 @@ $schema = <<<EOT
   "image": "$post_thumbnail",
   "author": {
     "@type": "Person",
-    "name": "Alease Parlanti"
+    "name": "Alease Parlanti",
+    "url": "https://belmontskinandlaserclinic.co.uk/about/"
   },
   "publisher": {
     "@type": "Organization",
