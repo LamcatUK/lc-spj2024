@@ -195,24 +195,6 @@ function extract_pricing_table_data($block_data) {
                 "priceValidUntil" => "2024-12-31",
                 "itemCondition" => "https://schema.org/NewCondition",
                 "availability" => "https://schema.org/InStock",
-                "seller" => [
-                    "@type" => "LocalBusiness",
-                    "name" => "Belmont Skin and Laser Clinic",
-                    "address" => [
-                        "@type" => "PostalAddress",
-                        "streetAddress" => "Belmont, Storrington Road",
-                        "addressLocality" => "Thakeham",
-                        "addressRegion" => "West Sussex",
-                        "postalCode" => "RH20 3NA",
-                        "addressCountry" => "GB"
-                    ],
-                    "geo" => [
-                        "@type" => "GeoCoordinates",
-                        "latitude" => 50.924132,
-                        "longitude" => -0.435876
-                    ],
-                    "telephone" => parse_phone(get_field('contact_phone', 'options'))
-                ],
                 "name" => "{$product_title} - {$description}"
             ];
 
