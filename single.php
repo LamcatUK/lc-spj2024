@@ -20,7 +20,7 @@ $schema = <<<EOT
 {
   "@context": "https://schema.org",
   "@type": "BlogPosting",
-  "headline": "$title",
+  "headline": "$post_title",
   "image": "$post_thumbnail",
   "author": {
     "@type": "Person",
