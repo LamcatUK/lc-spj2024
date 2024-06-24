@@ -7,10 +7,11 @@ $img = get_the_post_thumbnail(get_the_ID(), 'full', array('class' => 'single-blo
 $logo = get_stylesheet_directory_uri() . '/img/belmont-logo-full.png';
 $post_title = get_the_title();
 $post_thumbnail = get_the_post_thumbnail_url( get_the_ID(), 'full' );
-$yoast_meta_description = get_post_meta( get_the_ID(), '_yoast_wpseo_metadesc', true );
 $publication_date = get_the_date('c');
 $modification_date = get_the_modified_date('c');
 $permalink = get_permalink();
+
+$yoast_meta_description = get_post_meta( get_the_ID(), '_yoast_wpseo_metadesc', true );
 if (empty($yoast_meta_description)) {
     $yoast_meta_description = wp_trim_words(get_the_excerpt(), 30, '...');
 }
