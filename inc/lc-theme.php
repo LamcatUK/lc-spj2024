@@ -173,7 +173,8 @@ add_shortcode('timely_button', function () {
 });
 
 
-// pricing schema
+//-------------- pricing schema
+
 function extract_pricing_table_data($block_data) {
     $offers = [];
     $product_count = $block_data['products'];
@@ -205,6 +206,7 @@ function extract_pricing_table_data($block_data) {
 
     return $offers;
 }
+
 function get_pricing_table_data_from_blocks($blocks) {
     $all_offers = [];
 
@@ -245,5 +247,35 @@ function generate_pricing_table_schema() {
     echo '<script type="application/ld+json">' . json_encode($schema, JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT) . '</script>';
 }
 
+
+//--------------- Generate Breadcrumb schema
+function generate_breadcrumb_schema() {
+    $schema = [
+        "@context" => "https://schema.org",
+        "@type" => "BreadcrumbList",
+        "itemListElement" => [
+            [
+                "@type" => "ListItem",
+                "position" => 1,
+                "name" => "Home",
+                "item" => get_home_url()
+            ],
+            [
+                "@type" => "ListItem",
+                "position" => 2,
+                "name" => "Services",
+                "item" => get_permalink(get_page_by_path('services'))
+            ],
+            [
+                "@type" => "ListItem",
+                "position" => 3,
+                "name" => get_the_title(),
+                "item" => get_permalink()
+            ]
+        ]
+    ];
+
+    echo '<script type="application/ld+json">' . json_encode($schema, JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT) . '</script>';
+}
 
 ?>
