@@ -233,7 +233,7 @@ function generate_pricing_table_schema() {
 
     $schema = [
         "@context" => "https://schema.org",
-        "@type" => "Service",
+        "@type" => "Product",
         "name" => get_the_title(),
         "description" => "Effective and long-lasting hair removal using advanced laser technology.",
         "image" => $featured_image_url,
