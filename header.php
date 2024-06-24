@@ -122,19 +122,26 @@ if (is_front_page() || is_page('contact-us')) {
       "itemOffered": {
         "@type": "Service",
         "name": "Laser Tattoo Removal",
-        "description": "Effective tattoo removal using advanced laser technology."
+        "description": "Safe and efficient laser removal of unwanted tattoos."
       }
     },
     {
       "@type": "Offer",
       "itemOffered": {
         "@type": "Service",
-        "name": "Skin Rejuvenation",
-        "description": "Non-invasive IPL and Carbon Laser Facial treatments to improve skin texture and appearance."
+        "name": "Skin Rejuvenation IPL Treatments",
+        "description": "Intense Pulsed Light treatments to rejuvenate and enhance skin appearance."
+      }
+    },
+    {
+      "@type": "Offer",
+      "itemOffered": {
+        "@type": "Service",
+        "name": "Skin Rejuvenation Laser Carbon Facial",
+        "description": "Advanced laser carbon facial treatments for deep skin rejuvenation."
       }
     }
   ]
-
 }
     </script>
     <?php
