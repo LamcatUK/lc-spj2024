@@ -29,7 +29,7 @@
                 </div>
             </div>
             <div class="col-md-6" data-aos="fade-left">
-                <iframe
+                <iframe title="Find Belmont Skin and Laser Clinic"
                     src="<?=get_field('google_map', 'options')?>"
                     width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"
                     referrerpolicy="no-referrer-when-downgrade"></iframe>

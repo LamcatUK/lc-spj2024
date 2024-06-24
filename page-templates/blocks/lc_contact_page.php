@@ -35,6 +35,7 @@
         </div>
     </div>
     <iframe
+        title="Find The Belmont Skin and Laser Clinic"
         src="<?=get_field('google_map', 'options')?>"
         width="100%" height="550" class="contact__map" style="border:0;" allowfullscreen="" loading="lazy"
         referrerpolicy="no-referrer-when-downgrade"></iframe>

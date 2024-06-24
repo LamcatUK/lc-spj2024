@@ -168,7 +168,7 @@ if (get_field('gtm_property', 'options')) {
         <nav id="main-nav" class="navbar navbar-expand-lg d-block px-0" aria-labelledby="main-nav-label">
             <div class="container-xl">
                 <div class="d-flex justify-content-between w-100 align-items-center">
-                    <a href="/" class="navbar-brand" rel="home"></a>
+                    <a href="/" class="navbar-brand" rel="home" aria-label="Home Page"></a>
                     <button class="navbar-toggler input-button" id="navToggle" data-bs-toggle="collapse"
                         data-bs-target=".navbars" type="button" aria-label="Navigation"><i
                             class="fa fa-navicon"></i></button>

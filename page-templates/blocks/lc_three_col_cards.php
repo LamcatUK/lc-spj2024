@@ -12,7 +12,7 @@ while(have_rows('cards')) {
         ?>
             <div class="three_col_cards__card" data-aos="fade-up"
                 data-aos-delay="<?=$d?>">
-                <?=wp_get_attachment_image(get_sub_field('image'), 'large', false, array('class' => 'three_col_cards__image'))?>
+                <?=wp_get_attachment_image(get_sub_field('image'), 'large', false, array('class' => 'three_col_cards__image', 'alt' => ''))?>
             </div>
             <?php
     } else {
