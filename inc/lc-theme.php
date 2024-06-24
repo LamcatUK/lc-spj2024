@@ -172,4 +172,78 @@ add_shortcode('timely_button', function () {
     return ob_get_clean();
 });
 
+
+// pricing schema
+function extract_pricing_table_data($block_data) {
+    $offers = [];
+    $product_count = $block_data['products'];
+
+    for ($i = 0; $i < $product_count; $i++) {
+        $product_title = $block_data["products_{$i}_title"];
+        $list_count = $block_data["products_{$i}_list"];
+
+        for ($j = 0; $j < $list_count; $j++) {
+            $description = $block_data["products_{$i}_list_{$j}_description"];
+            $price = $block_data["products_{$i}_list_{$j}_price"];
+
+            $offers[] = [
+                "@type" => "Offer",
+                "url" => get_permalink(),
+                "priceCurrency" => "GBP",
+                "price" => $price,
+                "priceValidUntil" => "2034-12-31",
+                "itemCondition" => "https://schema.org/NewCondition",
+                "availability" => "https://schema.org/InStock",
+                "seller" => [
+                    "@type" => "LocalBusiness",
+                    "name" => "Belmont Skin and Laser Clinic"
+                ],
+                "name" => "{$product_title} - {$description}"
+            ];
+        }
+    }
+
+    return $offers;
+}
+function get_pricing_table_data_from_blocks($blocks) {
+    $all_offers = [];
+
+    foreach ($blocks as $block) {
+        if ($block['blockName'] === 'acf/lc-pricing-table') {
+            $block_data = $block['attrs']['data'];
+            $offers = extract_pricing_table_data($block_data);
+            $all_offers = array_merge($all_offers, $offers);
+        } elseif (!empty($block['innerBlocks'])) {
+            // Recursively handle nested blocks
+            $nested_offers = get_pricing_table_data_from_blocks($block['innerBlocks']);
+            $all_offers = array_merge($all_offers, $nested_offers);
+        }
+    }
+
+    return $all_offers;
+}
+
+// Function to generate the schema
+function generate_pricing_table_schema() {
+    // Get all blocks on the page
+    $blocks = parse_blocks(get_the_content());
+    $offers = get_pricing_table_data_from_blocks($blocks);
+
+    $schema = [
+        "@context" => "https://schema.org",
+        "@type" => "Product",
+        "name" => "Laser Hair Removal",
+        "description" => "Effective and long-lasting hair removal using advanced laser technology.",
+        "url" => get_permalink(),
+        "brand" => [
+            "@type" => "Brand",
+            "name" => "Belmont Skin and Laser Clinic"
+        ],
+        "offers" => $offers
+    ];
+
+    echo '<script type="application/ld+json">' . json_encode($schema, JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT) . '</script>';
+}
+
+
 ?>
