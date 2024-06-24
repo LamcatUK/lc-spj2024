@@ -102,13 +102,39 @@ if (is_front_page() || is_page('contact-us')) {
     "https://www.facebook.com/belmontskinandlaser/"
   ],
   "priceRange": "$$",
-  "servesCuisine": "Beauty Services",
   "description": "Belmont Skin and Laser Clinic offers advanced skincare and laser treatments to help you look and feel your best.",
   "contactPoint": {
     "@type": "ContactPoint",
     "telephone": "<?=parse_phone(get_field('contact_phone', 'options'))?>",
     "contactType": "Customer Service"
-  }
+  },
+  "makesOffer": [
+    {
+      "@type": "Offer",
+      "itemOffered": {
+        "@type": "Service",
+        "name": "Laser Hair Removal",
+        "description": "Effective and long-lasting hair removal using advanced laser technology."
+      }
+    },
+    {
+      "@type": "Offer",
+      "itemOffered": {
+        "@type": "Service",
+        "name": "Laser Tattoo Removal",
+        "description": "Effective tattoo removal using advanced laser technology."
+      }
+    },
+    {
+      "@type": "Offer",
+      "itemOffered": {
+        "@type": "Service",
+        "name": "Skin Rejuvenation",
+        "description": "Non-invasive IPL and Carbon Laser Facial treatments to improve skin texture and appearance."
+      }
+    }
+  ]
+
 }
     </script>
     <?php
