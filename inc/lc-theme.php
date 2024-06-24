@@ -246,17 +246,60 @@ function generate_pricing_table_schema() {
     $blocks = parse_blocks(get_the_content());
     $offers = get_pricing_table_data_from_blocks($blocks);
     $featured_image_url = get_the_post_thumbnail_url(); // Get the featured image URL
-    
+
+    $business_image_url = get_stylesheet_directory_uri() . "/img/belmont-logo-full.png";
+
     $schema = [
         "@context" => "https://schema.org",
-        "@type" => "Product",
+        "@type" => "Service",
         "name" => get_the_title(),
         "description" => "Effective and long-lasting hair removal using advanced laser technology.",
         "image" => $featured_image_url,
         "url" => get_permalink(),
-        "brand" => [
-            "@type" => "Brand",
-            "name" => "Belmont Skin and Laser Clinic"
+        "provider" => [
+            "@type" => "LocalBusiness",
+            "name" => "Belmont Skin and Laser Clinic",
+            "image" => $business_image_url,
+            "@id" => "https://belmontskinandlaserclinic.co.uk",
+            "url" => "https://belmontskinandlaserclinic.co.uk",
+            "telephone" => parse_phone(get_field('contact_phone', 'options')),
+            "address" => [
+                "@type" => "PostalAddress",
+                "streetAddress" => "Belmont, Storrington Road",
+                "addressLocality" => "Thakeham",
+                "addressRegion" => "West Sussex",
+                "postalCode" => "RH20 3NA",
+                "addressCountry" => "GB"
+            ],
+            "geo" => [
+                "@type" => "GeoCoordinates",
+                "latitude" => 50.924132,
+                "longitude" => -0.435876
+            ],
+            "openingHoursSpecification" => [
+                [
+                    "@type" => "OpeningHoursSpecification",
+                    "dayOfWeek" => [
+                        "Monday",
+                        "Tuesday",
+                        "Wednesday",
+                        "Thursday",
+                        "Friday"
+                    ],
+                    "opens" => "08:00",
+                    "closes" => "17:00"
+                ],
+                [
+                "@type" => "OpeningHoursSpecification",
+                "dayOfWeek" => "Saturday",
+                "opens" => "09:00",
+                "closes" => "15:00"
+                ]
+            ],
+            "sameAs" => [
+                "https://www.instagram.com/belmont_skin_and_laser/",
+                "https://www.facebook.com/belmontskinandlaser/"
+            ]
         ],
         "offers" => $offers
     ];
