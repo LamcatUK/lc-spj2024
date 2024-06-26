@@ -20,6 +20,17 @@ $class = $block['className'] ?? null;
             <?php
             $d += 200;
             }
+            ?>
+            <div class="button-group" data-aos="fade-right"
+                data-aos-delay="<?=$d?>">
+                <?php
+if (get_field('booking_link') ?? null) {
+    ?>
+            <div class="hero__button">
+                <?=do_shortcode('[timely_button]')?>
+            </div>
+            <?php
+}
 if (get_field('link') ?? null) {
     $l = get_field('link');
     ?>
@@ -32,6 +43,7 @@ if (get_field('link') ?? null) {
             <?php
 }
 ?>
+            </div>
         </div>
     </div>
 </section>

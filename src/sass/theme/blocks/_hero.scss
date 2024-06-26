@@ -24,4 +24,8 @@
     &__inner {
         width: min(600px, 90vw);
     }
+    .button-group {
+        display: flex;
+        gap: 1rem;
+    }
 }

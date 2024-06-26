@@ -1,10 +1,11 @@
 .button {
-    padding: 0.75rem 2rem;
+    padding: 0.75em 2em;
     text-decoration: none;
     border-radius: 0.05rem;
     transition: background-color var(--transition), color var(--transition), border var(--transition);
     font-weight: var(--fw-600);
-    font-size: var(--fs-300);
+    // font-size: var(--fs-300);
+    font-size: 14px;
     display: inline-block;
     text-transform: uppercase;
 }
