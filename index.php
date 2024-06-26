@@ -25,18 +25,17 @@ if (get_the_content(null, false, $pp) ?? null) {
                 </div>
                 <?php
 }
-$d += 200;
-// }
-// if (get_field('link') ?? null) {
-// $l = get_field('link');
-?>
+                $d += 200;
+?>            <div class="button-group" data-aos="fade-right"
+data-aos-delay="<?=$d?>">
+                <div class="hero__button">
+                    <?=do_shortcode('[timely_button]')?>
+                </div>
                 <div class="hero__button" data-aos="fade-right"
                     data-aos-delay="<?=$d?>">
                     <a href="/contact/" class="button button-primary">Contact Us</a>
                 </div>
-                <?php
-    // }
-?>
+              </div>
             </div>
         </div>
     </section>
