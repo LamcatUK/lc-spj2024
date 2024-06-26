@@ -22,15 +22,15 @@ function acf_blocks()
             'mode'	=> 'edit',
             'supports' => array('mode' => false),
         ));
-        acf_register_block_type(array(
-            'name'				=> 'lc_image_banner',
-            'title'				=> __('LC Image Banner'),
-            'category'			=> 'layout',
-            'icon'				=> 'cover-image',
-            'render_template'	=> 'page-templates/blocks/lc_image_banner.php',
-            'mode'	=> 'edit',
-            'supports' => array('mode' => false),
-        ));
+        // acf_register_block_type(array(
+        //     'name'				=> 'lc_image_banner',
+        //     'title'				=> __('LC Image Banner'),
+        //     'category'			=> 'layout',
+        //     'icon'				=> 'cover-image',
+        //     'render_template'	=> 'page-templates/blocks/lc_image_banner.php',
+        //     'mode'	=> 'edit',
+        //     'supports' => array('mode' => false),
+        // ));
         acf_register_block_type(array(
             'name'				=> 'lc_contact',
             'title'				=> __('LC Contact'),

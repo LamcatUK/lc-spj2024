@@ -5,18 +5,27 @@
         <div class="image_banner__content" data-aos="fade-down">
             <?=get_field('content')?>
         </div>
-        <?php
-        if (get_field('link') ?? null) {
-            $l = get_field('link');
+        <div class="d-flex g-2">
+            <?php
+            if (get_field('booking_link') ?? null) {
+                ?>
+                <div class="hero__button">
+                <?=do_shortcode('[timely_button]')?>
+            </div>
+                <?php
+            }
+            if (get_field('link') ?? null) {
+                $l = get_field('link');
+                ?>
+            <div class="image_banner__button" data-aos="fade-up"
+                data-aos-delay="<?=$d?>">
+                <a href="<?=$l['url']?>"
+                    target="<?=$l['target']?>"
+                    class="button button-primary"><?=$l['title']?></a>
+            </div>
+            <?php
+            }
             ?>
-        <div class="image_banner__button" data-aos="fade-up"
-            data-aos-delay="<?=$d?>">
-            <a href="<?=$l['url']?>"
-                target="<?=$l['target']?>"
-                class="button button-primary"><?=$l['title']?></a>
         </div>
-        <?php
-        }
-    ?>
     </div>
 </section>

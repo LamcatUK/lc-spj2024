@@ -85,16 +85,12 @@ if (is_front_page() || is_page('contact-us')) {
         "Tuesday",
         "Wednesday",
         "Thursday",
-        "Friday"
+        "Friday",
+        "Saturday",
+        "Sunday"
       ],
-      "opens": "08:00",
-      "closes": "17:00"
-    },
-    {
-      "@type": "OpeningHoursSpecification",
-      "dayOfWeek": "Saturday",
       "opens": "09:00",
-      "closes": "15:00"
+      "closes": "21:00"
     }
   ],
   "sameAs": [
