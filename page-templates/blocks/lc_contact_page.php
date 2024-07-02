@@ -27,6 +27,7 @@
                         "style": "dark"
                     });
                 </script>
+                <div class="mb-4">Or email <?=do_shortcode(['contact_email'])?></div>
             </div>
             <div class="col-md-6" data-aos="fade-left">
                 <h2 class="h3">Get in Touch</h2>
