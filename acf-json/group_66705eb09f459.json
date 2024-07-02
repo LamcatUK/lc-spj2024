@@ -261,9 +261,9 @@
             "append": ""
         },
         {
-            "key": "field_66785b19c0d52",
-            "label": "Directions Link",
-            "name": "directions_link",
+            "key": "field_668442bbccda6",
+            "label": "GA Property",
+            "name": "ga_property",
             "aria-label": "",
             "type": "text",
             "instructions": "",
@@ -299,5 +299,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1719163684
+    "modified": 1719943921
 }
