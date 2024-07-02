@@ -169,8 +169,8 @@ if (get_field('gtm_property', 'options')) {
                         data-bs-target=".navbars" type="button" aria-label="Navigation"><i
                             class="fa fa-navicon"></i></button>
                 </div>
-                <div class="w-100 d-flex flex-column-reverse flex-lg-column pb-4 pb-lg-0">
-                    <div id="topNav" class="px-2 px-lg-0 collapse navbar-collapse navbars">
+                <div class="w-100 d-flex flex-column-reverse flex-lg-column">
+                    <div id="topNav" class="px-2 px-lg-0 pb-4 pb-lg-0 collapse navbar-collapse navbars">
                         <ul id="top-nav"
                             class="navbar-nav w-100 justify-content-end align-items-lg-center mt-2 mt-lg-0 gap-2">
                             <li itemscope="itemscope" itemtype="https://www.schema.org/SiteNavigationElement"
