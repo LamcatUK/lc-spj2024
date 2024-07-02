@@ -27,7 +27,7 @@
                         "style": "dark"
                     });
                 </script>
-                <div class="mb-4">Or email <a href="mailto:<?=get_field('contact_email', 'options')?>"><?=get_field('contact_email', 'options')?></a></div>
+                <div class="my-4">Or email <a href="mailto:<?=get_field('contact_email', 'options')?>"><?=get_field('contact_email', 'options')?></a></div>
             </div>
             <div class="col-md-6" data-aos="fade-left">
                 <h2 class="h3">Get in Touch</h2>
