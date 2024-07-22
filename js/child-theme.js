@@ -6851,6 +6851,83 @@
 	      slide.style.height = `${maxHeight}px`;
 	    });
 	  }
+	  const gradients = [{
+	    x: 85,
+	    y: 6,
+	    color: 'var(--col-blue-400)',
+	    vx: 0.2,
+	    vy: 0.1
+	  }, {
+	    x: 36,
+	    y: 0,
+	    color: 'var(--col-orange-400)',
+	    vx: 0.1,
+	    vy: 0.2
+	  }, {
+	    x: 10,
+	    y: 52,
+	    color: 'var(--col-yellow-400)',
+	    vx: 0.15,
+	    vy: 0.15
+	  }, {
+	    x: 2,
+	    y: 48,
+	    color: 'var(--col-pink-400)',
+	    vx: 0.2,
+	    vy: 0.1
+	  }, {
+	    x: 62,
+	    y: 92,
+	    color: 'var(--col-aqua-400)',
+	    vx: 0.1,
+	    vy: 0.2
+	  }];
+	  let animationInterval;
+	  function updateGradient() {
+	    const gradientElement = document.getElementById('animatedGradient');
+	    gradientElement.style.backgroundImage = generateGradientStyle();
+	  }
+	  function generateGradientStyle() {
+	    return gradients.map(gradient => {
+	      return `radial-gradient(at ${gradient.x}% ${gradient.y}%, ${gradient.color} 0px, transparent 50%)`;
+	    }).join(", ");
+	  }
+	  function animateGradients() {
+	    gradients.forEach(gradient => {
+	      gradient.x += gradient.vx;
+	      gradient.y += gradient.vy;
+	      if (gradient.x <= 0 || gradient.x >= 100) gradient.vx *= -1;
+	      if (gradient.y <= 0 || gradient.y >= 100) gradient.vy *= -1;
+	    });
+	    updateGradient();
+	  }
+	  function startAnimation() {
+	    if (!animationInterval) {
+	      updateGradient();
+	      animationInterval = setInterval(animateGradients, 20);
+	    }
+	  }
+	  function stopAnimation() {
+	    if (animationInterval) {
+	      clearInterval(animationInterval);
+	      animationInterval = null;
+	    }
+	  }
+
+	  // Set up an intersection observer to manage the animation
+	  const observer = new IntersectionObserver((entries, observer) => {
+	    entries.forEach(entry => {
+	      if (entry.isIntersecting) {
+	        startAnimation();
+	      } else {
+	        stopAnimation();
+	      }
+	    });
+	  }, {
+	    threshold: 0.1
+	  }); // Adjust threshold as needed
+
+	  observer.observe(document.getElementById('animatedGradient'));
 	});
 
 	exports.Alert = alert;

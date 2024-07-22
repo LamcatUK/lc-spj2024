@@ -1,52 +1,35 @@
-/* cinzel-500 - latin */
+/* walter-turncoat-regular - latin */
 @font-face {
     font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
-    font-family: 'Cinzel';
-    font-style: normal;
-    font-weight: 500;
-    src: url('../fonts/cinzel-v23-latin-500.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
-}
-
-/* montserrat-regular - latin */
-@font-face {
-    font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
-    font-family: 'Montserrat';
+    font-family: 'Walter Turncoat';
     font-style: normal;
     font-weight: 400;
-    src: url('../fonts/montserrat-v26-latin-regular.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+    src: url('../fonts/walter-turncoat-v23-latin-regular.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
 }
-/* montserrat-600 - latin */
+/* lato-300 - latin */
 @font-face {
     font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
-    font-family: 'Montserrat';
+    font-family: 'Lato';
     font-style: normal;
-    font-weight: 600;
-    src: url('../fonts/montserrat-v26-latin-600.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+    font-weight: 300;
+    src: url('../fonts/lato-v24-latin-300.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
 }
 
 html {
-    font-size: 16px;
+    font-size: 20px;
 }
 
 body {
-    // font-family: ff-dax-pro, sans-serif;
+    font-size: var(--fs-400);
     font-family: var(--ff-body);
-    font-weight: 400;
-    font-style: normal;
-    font-size: 1rem;
-    line-height: 1.3;
-    letter-spacing: 0.5px;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+    font-weight: var(--fw-400);
 }
 
-h1, .h1, h2, .h2, h3, .h3, h4, .h4, .h99 {
+h1, .h1, h2, .h2, h3, .h3, h4, .h4 {
     font-family: var(--ff-heading);
-    font-weight: 500;
-    margin-bottom: 1rem;
-    // line-height: 0.9;
-    text-wrap: balance;
-    color: var(--col-taupe-600);
+    font-weight: var(--fw-900);
+    color: var(--col-denim-400);
+    line-height: 1.1;
 }
 
 h1, .h1 {
@@ -59,21 +42,6 @@ h3, .h3 {
     font-size: var(--fs-700);
 }
 
-.has-line {
-    position: relative;
-    padding-bottom: 0.5rem;
-    display: inline-block;
-    margin-bottom: 1.5rem;
-    &::after {
-        content: "";
-        position: absolute;
-        width: 100%;
-        height: 2px;
-        bottom: 0;
-        left: 0;
-        background-color: var(--_underline-colour);
-    }
-}
 .center-container {
     display: flex;
     justify-content: center; /* Center the flex items horizontally */
@@ -93,7 +61,7 @@ h3, .h3 {
 }
 
 strong, b, .fw-bold {
-    font-weight: var(--fw-600);
+    font-weight: bold;
 }
 
 .ff-body {

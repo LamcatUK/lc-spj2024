@@ -1,51 +1,75 @@
 .reviews {
-    &__feature {
-        min-height: 350px;
+    .splide {
         position: relative;
-    }
-    &__image,
-    &__bg {
-        position: absolute;
-        inset: 0;
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-    }
-    &__reviews {
-        position: relative;
-    }
-    &__slider {
-        width: 90%;
-        position: relative;
-        // &::before {
-        //     content: "\f10d";
-        //     font-family: var(--ff-fa);
-        //     font-weight: 600;
-        //     position: absolute;
-        //     top: -1rem;
-        //     color: var(--col-cream-400);
-        //     font-size: 5rem;
-        //      opacity: 0.2;    
-        // }
-    }
-    &__slide {
-        padding-inline: 3rem;
-        text-align: center;
-    }
-    &__content {
-        color: var(--col-grey-500);
-        font-size: var(--fs-500);
-        p {
-            text-wrap: balance;
+        isolation: isolate;
+        background-color: var(--col-blue-400);
+        &::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: -40px;
+            height: 42px;
+            @media (min-width:568px) {
+                top: -60px;
+                height: 62px;
+            }
+            width: 100%;
+            background-color: var(--col-blue-400);
+            clip-path: polygon(0% 100%, 100% 100%, 100% 0%, 0% 95%);
+            z-index: -1;
         }
     }
-    &__cite {
-        color: var(--col-cream-400);
-        font-family: var(--ff-heading);
-        font-size: var(--fs-500);
-    }
-}
+    .splide {
+        margin-top: 2rem;
 
-.swiper-pagination-bullet-active {
-    background-color: var(--col-cream-400) !important;
+        &__track {
+            padding-block: 3rem;
+        }
+
+        &__inner {
+            width: min(768px,80vw);
+            margin-inline: auto;
+            color: white;
+            text-align: center;
+            .testimonial__content {
+                font-size: var(--fs-500);
+                margin-bottom: 0.5rem;
+            }
+            .testimonial__cite {
+                font-family: var(--ff-headings);
+            }
+        }
+        .splide__arrow {
+            opacity: 0;
+            @media (min-width:768px) {
+                opacity: 1;
+            }
+        }
+    }
+
+    .wrapper {
+        position: relative;
+    }
+    .lottie-stars {
+        position: absolute;
+        z-index: 10;
+
+        width: 150px;
+        height: 150px;
+        right: 10px;
+        top: -50px;
+        @media (min-width:568px) {
+            width: 175px;
+            height: 175px;
+            top: -25px;
+        }
+        @media (min-width:992px) {
+            width: 200px;
+            height: 200px;
+            top: 0;
+        }
+
+    }
+
 }

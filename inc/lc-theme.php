@@ -1,11 +1,11 @@
 <?php
 defined('ABSPATH') || exit;
 
-// require_once get_theme_file_path('inc/class-bs-collapse-navwalker.php');
+require_once get_theme_file_path('inc/class-wp-bootstrap-navwalker.php');
 
 require_once LC_THEME_DIR . '/inc/lc-utility.php';
 require_once LC_THEME_DIR . '/inc/lc-blocks.php';
-require_once LC_THEME_DIR . '/inc/lc-blog.php';
+// require_once LC_THEME_DIR . '/inc/lc-blog.php';
 
 if (function_exists('acf_add_options_page')) {
     acf_add_options_page(
@@ -48,36 +48,6 @@ function widgets_init()
                 'name' => 'White',
                 'slug' => 'white',
                 'color' => '#ffffff'
-            ),
-            array(
-                'name' => 'Grey 100',
-                'slug' => 'grey-100',
-                'color' => '#f8f8f8'
-            ),
-            array(
-                'name' => 'Taupe 400',
-                'slug' => 'taupe-400',
-                'color' => '#87806e'
-            ),
-            array(
-                'name' => 'Taupe 600',
-                'slug' => 'taupe-600',
-                'color' => '#665f4d'
-            ),
-            array(
-                'name' => 'Copper 400',
-                'slug' => 'copper-400',
-                'color' => '#cfa47f'
-            ),
-            array(
-                'name' => 'Copper 600',
-                'slug' => 'copper-600',
-                'color' => '#6b3a02'
-            ),
-            array(
-                'name' => 'Cream 300',
-                'slug' => 'cream-300',
-                'color' => '#fbfbf2'
             ),
         )
     );
@@ -133,8 +103,14 @@ function lc_theme_enqueue()
 
     wp_enqueue_style('swiper-style', "https://unpkg.com/swiper/swiper-bundle.min.css", array());
     wp_enqueue_script('swiper', "https://unpkg.com/swiper/swiper-bundle.min.js", array(), null, true);
+
+    wp_enqueue_script('splide-script', get_stylesheet_directory_uri() . '/js/splide.min.js', array(), null, true);
+    wp_enqueue_style('splide-style', get_stylesheet_directory_uri() . "/css/splide.min.css", array());
+
     wp_enqueue_style('aos-style', "https://unpkg.com/aos@2.3.1/dist/aos.css", array());
     wp_enqueue_script('aos', 'https://unpkg.com/aos@2.3.1/dist/aos.js', array(), null, true);
+
+    wp_enqueue_script_module('lottie', 'https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs', array(), null, true);
 
     wp_enqueue_style('child-understrap-styles', get_stylesheet_directory_uri() . $theme_styles, array(), $css_version);
 
@@ -158,166 +134,5 @@ function custom_gutenberg_scripts()
 add_action('enqueue_block_editor_assets', 'custom_gutenberg_scripts');
 
 add_filter('wpcf7_autop_or_not', '__return_false');
-
-add_shortcode('timely_button', function () {
-    ob_start();
-    ?>
-<script id="timelyScript" src="//book.gettimely.com/widget/book-button-v1.5.js"></script>
-<script>
-    new timelyButton("belmontskinandlaserclinic", {
-        "style": "dark"
-    });
-</script>
-<?php
-    return ob_get_clean();
-});
-
-
-//-------------- pricing schema
-
-function extract_pricing_table_data($block_data) {
-    $offers = [];
-    $product_count = $block_data['products'];
-
-    for ($i = 0; $i < $product_count; $i++) {
-        $product_title = $block_data["products_{$i}_title"];
-        $list_count = $block_data["products_{$i}_list"];
-
-        for ($j = 0; $j < $list_count; $j++) {
-            $description = $block_data["products_{$i}_list_{$j}_description"];
-            $price = $block_data["products_{$i}_list_{$j}_price"];
-
-            $offers[] = [
-                "@type" => "Offer",
-                "url" => get_permalink(),
-                "priceCurrency" => "GBP",
-                "price" => $price,
-                "priceValidUntil" => "2024-12-31",
-                "itemCondition" => "https://schema.org/NewCondition",
-                "availability" => "https://schema.org/InStock",
-                "name" => "{$product_title} - {$description}"
-            ];
-
-        }
-    }
-
-    return $offers;
-}
-
-function get_pricing_table_data_from_blocks($blocks) {
-    $all_offers = [];
-
-    foreach ($blocks as $block) {
-        if ($block['blockName'] === 'acf/lc-pricing-table') {
-            $block_data = $block['attrs']['data'];
-            $offers = extract_pricing_table_data($block_data);
-            $all_offers = array_merge($all_offers, $offers);
-        } elseif (!empty($block['innerBlocks'])) {
-            // Recursively handle nested blocks
-            $nested_offers = get_pricing_table_data_from_blocks($block['innerBlocks']);
-            $all_offers = array_merge($all_offers, $nested_offers);
-        }
-    }
-
-    return $all_offers;
-}
-
-// Function to generate the schema
-function generate_pricing_table_schema() {
-    // Get all blocks on the page
-    $blocks = parse_blocks(get_the_content());
-    $offers = get_pricing_table_data_from_blocks($blocks);
-    $featured_image_url = get_the_post_thumbnail_url(); // Get the featured image URL
-
-    $business_image_url = get_stylesheet_directory_uri() . "/img/belmont-logo-full.png";
-
-    $schema = [
-        "@context" => "https://schema.org",
-        "@type" => "Product",
-        "name" => get_the_title(),
-        "description" => "Effective and long-lasting hair removal using advanced laser technology.",
-        "image" => $featured_image_url,
-        "url" => get_permalink(),
-        "provider" => [
-            "@type" => "LocalBusiness",
-            "name" => "Belmont Skin and Laser Clinic",
-            "image" => $business_image_url,
-            "@id" => "https://belmontskinandlaserclinic.co.uk",
-            "url" => "https://belmontskinandlaserclinic.co.uk",
-            "telephone" => parse_phone(get_field('contact_phone', 'options')),
-            "address" => [
-                "@type" => "PostalAddress",
-                "streetAddress" => "Belmont, Storrington Road",
-                "addressLocality" => "Thakeham",
-                "addressRegion" => "West Sussex",
-                "postalCode" => "RH20 3NA",
-                "addressCountry" => "GB"
-            ],
-            "geo" => [
-                "@type" => "GeoCoordinates",
-                "latitude" => 50.924132,
-                "longitude" => -0.435876
-            ],
-            "openingHoursSpecification" => [
-                [
-                    "@type" => "OpeningHoursSpecification",
-                    "dayOfWeek" => [
-                        "Monday",
-                        "Tuesday",
-                        "Wednesday",
-                        "Thursday",
-                        "Friday"
-                    ],
-                    "opens" => "08:00",
-                    "closes" => "17:00"
-                ],
-                [
-                "@type" => "OpeningHoursSpecification",
-                "dayOfWeek" => "Saturday",
-                "opens" => "09:00",
-                "closes" => "15:00"
-                ]
-            ],
-            "sameAs" => [
-                "https://www.instagram.com/belmont_skin_and_laser/",
-                "https://www.facebook.com/belmontskinandlaser/"
-            ]
-        ],
-        "offers" => $offers
-    ];
-
-    echo '<script type="application/ld+json">' . json_encode($schema, JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT) . '</script>';
-}
-
-
-//--------------- Generate Breadcrumb schema
-function generate_breadcrumb_schema() {
-    $schema = [
-        "@context" => "https://schema.org",
-        "@type" => "BreadcrumbList",
-        "itemListElement" => [
-            [
-                "@type" => "ListItem",
-                "position" => 1,
-                "name" => "Home",
-                "item" => get_home_url()
-            ],
-            [
-                "@type" => "ListItem",
-                "position" => 2,
-                "name" => "Services",
-                "item" => get_permalink(get_page_by_path('services'))
-            ],
-            [
-                "@type" => "ListItem",
-                "position" => 3,
-                "name" => get_the_title(),
-                "item" => get_permalink()
-            ]
-        ]
-    ];
-
-    echo '<script type="application/ld+json">' . json_encode($schema, JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT) . '</script>';
-}
 
 ?>

@@ -116,44 +116,6 @@
             "save_other_choice": 0
         },
         {
-            "key": "field_66045164f20c4",
-            "label": "Background Colour",
-            "name": "bg_colour",
-            "aria-label": "",
-            "type": "editor_palette",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "50",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "allowed_colors": "",
-            "exclude_colors": "",
-            "return_format": "slug"
-        },
-        {
-            "key": "field_66709168b3e10",
-            "label": "Title Colour",
-            "name": "title_colour",
-            "aria-label": "",
-            "type": "editor_palette",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "50",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "allowed_colors": "",
-            "exclude_colors": "",
-            "return_format": "slug"
-        },
-        {
             "key": "field_6604516ef20c5",
             "label": "Content",
             "name": "",
@@ -273,5 +235,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1718817265
+    "modified": 1721668255
 }

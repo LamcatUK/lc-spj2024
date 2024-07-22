@@ -1,5 +1,5 @@
 {
-  "name": "lc-belmont2024",
+  "name": "lc-spj2024",
   "version": "1.2.0",
   "description": "Basic Child Theme for Understrap Theme Framework: https://github.com/understrap/understrap",
   "main": "index.js",
@@ -26,7 +26,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/understrap/lc-belmont2024.git"
+    "url": "https://github.com/understrap/lc-spj2024.git"
   },
   "keywords": [
     "wordpress",
@@ -38,7 +38,7 @@
   "author": "The Understrap Authors (https://github.com/understrap/understrap/graphs/contributors)",
   "license": "GPL-3.0",
   "bugs": {
-    "url": "https://github.com/understrap/lc-belmont2024/issues"
+    "url": "https://github.com/understrap/lc-spj2024/issues"
   },
   "homepage": "https://understrap.com",
   "dependencies": {},

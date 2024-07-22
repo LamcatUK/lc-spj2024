@@ -8,7 +8,7 @@
 // Exit if accessed directly.
 defined('ABSPATH') || exit;
 
-define('LC_THEME_DIR', WP_CONTENT_DIR . '/themes/lc-belmont2024');
+define('LC_THEME_DIR', WP_CONTENT_DIR . '/themes/lc-spj2024');
 
 require_once LC_THEME_DIR . '/inc/lc-theme.php';
 
@@ -32,7 +32,7 @@ add_action('wp_enqueue_scripts', 'understrap_remove_scripts', 20);
  */
 function add_child_theme_textdomain()
 {
-    load_child_theme_textdomain('lc-belmont2024', get_stylesheet_directory() . '/languages');
+    load_child_theme_textdomain('lc-spj2024', get_stylesheet_directory() . '/languages');
 }
 add_action('after_setup_theme', 'add_child_theme_textdomain');
 

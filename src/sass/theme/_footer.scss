@@ -1,69 +1,23 @@
 footer {
+    background-color: var(--col-denim-400);
+    color: #fff;
 
-    --_underline-colour: var(--col-cream-400);
+    margin-top: 2rem;
+    padding-top: 50px;
+    padding-bottom: 1rem;
+    clip-path: polygon(0 150px,120px 0,100% 70px,100% 100%,0 100%);
 
-    // margin-top: 3rem;
-    .container-xl {
-        position: relative;
-    }
-
-    .h4 {
-        color: var(--col-cream-400);
-    }
-    .pre_footer {
-        display: grid;
-        z-index: 999;
-        @media (min-width:992px) {
-            position: absolute;
-            left: 0;
-            right: 0;
-            top: -2.5rem;
-            grid-template-columns: repeat(3,1fr);
-        }
-
-        &__card {
-            padding: 1.5rem 1rem;
-            text-align: center;
-            display: grid;
-            align-items: center;
-            grid-template-columns: 50px auto;
-
-            &:nth-of-type(odd) {
-                background-color: var(--col-taupe-400);
-            }
-            &:nth-of-type(even) {
-                background-color: var(--col-taupe-600);
-            }
-
-            .fa-solid {
-                font-size: 2rem;
-            }
-        }
-    }
-
-    background-color: var(--col-black);
-    color: var(--col-cream-400);
-  
     font-size: var(--fs-300);
 
-    .row {
-        padding-top: 5rem;
-        padding-bottom: 3rem;
-    }
-
-    .menu {
-        list-style: none;
-        padding-inline-start: 0;
-        li {
-            padding-bottom: 0.5rem;
-        }
+    .h4 {
+        color: #fff;
     }
 
     a {
-        color: var(--col-cream-400);
+        color: var(--col-white);
         text-decoration: none;
         &:hover {
-            color: var(--col-copper-400);
+            color: var(--col-yellow-400);
         }
     }
 
@@ -78,18 +32,18 @@ footer {
     }
 
     .colophon {
+        font-size: var(--fs-300);
+        border-top: 1px solid #ffffff99;
+        margin-top: 2rem;
+        padding-top: 0.5rem;
         display: flex;
         justify-content: space-between;
-        flex-wrap: wrap;
-        padding-block: 1rem;
-        color: var(--col-cream-400);
-        font-size: var(--fs-200);
-        border-top: 1px solid var(--col-cream-400);
         a {
-            color: var(--col-cream-400);
-            text-decoration: none;
+            opacity: 0.6;
+            transition: opacity var(--transition);
             &:hover {
-                color: var(--col-copper-400);
+                color: white;
+                opacity: 1;
             }
         }
     }

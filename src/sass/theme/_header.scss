@@ -1,15 +1,51 @@
 header {
-    .dropdown-menu {
-        --bs-dropdown-link-active-bg: var(--col-taupe-600);
-        --bs-dropdown-border-radius: 0
+
+    .logo {
+        position: relative;
+        width: 100px;
+
+        svg .cls-1 {
+            fill: #fff;
+            animation: fill-white-to-blue linear both;
+            animation-timeline: scroll();
+            animation-range: 0 150px;
+        }
+
+        @media (min-width: 992px ) {
+            width: 300px;
+        }
+        height: 58px;
+        & > * {
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        &__full {
+            opacity: 0;
+        }
+        &__icon {
+            opacity: 1;
+        }
+        @media (min-width: 992px ) {
+            &__full {
+                opacity: 1;
+            }
+            &__icon {
+                opacity: 0;
+            }
+        }
     }
+
+    animation: add-shadow linear both;
+	animation-timeline: scroll();
+	animation-range: 0 150px;
+
 
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
     z-index: 9999;
-    background-color: var(--col-white);
 
     transition: top var(--transition);
     max-width: 100vw;
@@ -19,79 +55,79 @@ header {
     }
 
     .nav-link {
+        position: relative;
         font-family: var(--ff-heading);
         font-size: 24px;
         padding-block: 1rem;
-        padding-left: 0 !important;
-        padding-right: 0 !important;
-        position: relative;
+        color: white;
+        animation: color-white-to-blue linear both;
+        animation-timeline: scroll();
+        animation-range: 0 150px;
+        transition: color var(--transition);
         &:hover,
-        &:focus-visible,
-        &[aria-current="page"] {
-            color: var(--col-taupe-600);
-            &::before {
-                transform: scale(1);    
+        &:focus-visible {
+            color: white;
+            &::after {
+                width: 100%;
             }
         }
         @media (min-width:992px) {
-            padding-block: 0.5rem 0;
-            &::before {
-                content: "";
+            &::after {
+                content: '';
                 position: absolute;
-                width: 100%;
-                transform: scale(0);
-                height: 2px;
-                bottom: 0;
+                width: 0;
+                height: 2px; /* Line thickness */
+                bottom: 1rem; /* Positioning the line just below the text */
                 left: 0;
-                background-color: var(--col-taupe-600);
-                transform-origin: center left;
-                transition: transform var(--transition);
+                background-color: white; /* Line colour */
+                animation: bg-white-to-blue linear both;
+                animation-timeline: scroll();
+                animation-range: 0 150px;
+                transition: width var(--transition); /* Animation effect */
             }
         }
     }
 
-    #main-nav {
-        @media (min-width:992px) {
-            .container-xl {
-                align-items: stretch;
-            }
-        }
-    }
-    #topNav {
-        a {
-            text-decoration: none;
-            color: var(--col-taupe-600);
-            &:hover {
-                color: var(--col-taupe-400);
-            }
-        }
-        .topNav_phone {
-            font-size: 17px;
-            font-weight: var(--fw-600);
-            padding: 0.5em 1em;
-            border: 1px solid var(--col-taupe-600);
-            transition: background-color var(--transition), color var(--transition);
-            &:hover {
-                background-color: var(--col-taupe-600);
-                color: var(--col-white) !important;
-            }
-        }
+}
+
+
+
+@keyframes shrink-name {
+    to { font-size: 1.5rem; }
+}
+@keyframes add-shadow {
+    from { background-color: transparent; }
+    to { box-shadow: 0 5px 5px -3px rgba(0,0,0,.26); background-color: var(--col-white); }
+}
+
+
+@keyframes color-white-to-blue {
+    to {
+        color: var(--col-denim-400);
     }
 }
-.navbar-brand {
-    background-image: url(../img/belmont-logo.png);
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: top left;
-
-    aspect-ratio: 1;
-
-    transition: width var(--transition);
-
-    width: 60px;
-
-    @media (min-width: 992px) {
-        width: 90px;
+@keyframes bg-white-to-blue {
+    to {
+        background-color: var(--col-denim-400);
     }
-    margin-right: 0;
+}
+
+@keyframes loop {
+    0% {
+        rotate: 0deg;
+    }
+    100% {
+        rotate: 360deg;
+    }
+}
+
+@keyframes fill-white-to-blue {
+    to {
+        fill: var(--col-denim-400);
+    }
+}
+@keyframes stroke-white-to-blue {
+    to {
+        stroke: var(--col-denim-400);
+    }
 }

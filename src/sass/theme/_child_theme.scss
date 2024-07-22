@@ -20,18 +20,21 @@ a {
 }
 
 main {
-    margin-top: var(--h-top);
-    @media (min-width:992px) {
-        margin-top: var(--h-top-lg);
-    }
     a {
         text-decoration: none;
         font-weight: var(--fw-600);
         color: inherit;
         &:hover {
-            color: var(--col-taupe-400)
+            color: var(--col-yellow-400)
         }
     }
+}
+
+.anchor {
+    display: block;
+    position: relative;
+    top: calc( 100px * -1);
+    visibility: hidden;
 }
 
 .wpcf7-select {
@@ -39,12 +42,11 @@ main {
 }
 input[type=submit].wpcf7-submit {
     &:disabled {
-        background-color: var(--col-grey-500);
+        background-color: var(--col-orange-500);
         &:hover {
-            background-color: var(--col-grey-500);
+            background-color: var(--col-yellow-500);
         }
     }
-    // background-color: var(--col-taupe-600);
     width: auto;
     background-color: #39464e;
     color: var(--col-white);
@@ -56,20 +58,6 @@ input[type=submit].wpcf7-submit {
     font-weight: var(--fw-600);
     transition: background-color var(--transition);
     &:hover {
-        // background-color: var(--col-taupe-400);
         background-color: #889095;
-    }
-}
-
-.breadcrumbs {
-    color: var(--col-grey-500);
-    font-size: var(--fs-300);
-    a {
-        text-decoration: none;
-        color: inherit;
-        font-weight: var(--fw-600);
-        &:hover {
-            color: var(--col-black);
-        }
     }
 }

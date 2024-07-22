@@ -2,48 +2,43 @@
 $d = 200;
 $class = $block['className'] ?? null;
 ?>
-<section class="hero <?=$class?>">
-    <?=wp_get_attachment_image(get_field('background'), 'full', false, array('class' => 'hero__bg'))?>
-    <div class="overlay"></div>
-    <div class="container-xl h-100 d-flex align-items-center">
-        <div class="hero__inner">
-            <h1 data-aos="fade-right">
-                <?=get_field('title')?>
-            </h1>
-            <?php
-            if (get_field('content') ?? null) {
-                ?>
-            <div class="hero__content mb-4" data-aos="fade-right"
-                data-aos-delay="<?=$d?>">
-                <?=get_field('content')?>
-            </div>
+<section class="hero <?=$class?> slice">
+    <div id="animatedGradient"></div>
+    <div class="container-xl h-100 hero__inner">
+        <h1 data-aos="fade-right">
+            <?=get_field('title')?>
+        </h1>
+        <?php
+        if (get_field('content') ?? null) {
+            ?>
+        <div class="h2 mb-4 text-white" data-aos="fade-right"
+            data-aos-delay="<?=$d?>">
+            <?=get_field('content')?>
+        </div>
             <?php
             $d += 200;
-            }
+        }
+        if (get_field('link') ?? null) {
+            $l = get_field('link');
             ?>
-            <div class="button-group" data-aos="fade-right"
-                data-aos-delay="<?=$d?>">
-                <?php
-if (get_field('booking_link') ?? null) {
-    ?>
-            <div class="hero__button">
-                <?=do_shortcode('[timely_button]')?>
-            </div>
+        <div class="hero__button" data-aos="fade-right"
+            data-aos-delay="<?=$d?>">
+            <a href="<?=$l['url']?>"
+                target="<?=$l['target']?>"
+                class="btn btn-orange"><?=$l['title']?></a>
+        </div>
             <?php
-}
-if (get_field('link') ?? null) {
-    $l = get_field('link');
-    ?>
-            <div class="hero__button" data-aos="fade-right"
-                data-aos-delay="<?=$d?>">
-                <a href="<?=$l['url']?>"
-                    target="<?=$l['target']?>"
-                    class="button button-primary"><?=$l['title']?></a>
-            </div>
-            <?php
-}
-?>
-            </div>
+        }
+        ?>
+    </div>
+</section>
+<section class="trust">
+    <div class="wrapper">
+        <div data-aos="fade-up" class="trust__intro">Experienced with </div>
+        <div class="trust__cards">
+            <div data-aos="fade-up" data-aos-delay="100" class="trust__card"><img src="<?=get_stylesheet_directory_uri()?>/img/logo--xero.svg" width="685.7" height="685.7"></div>
+            <div data-aos="fade-up" data-aos-delay="200" class="trust__card"><img src="<?=get_stylesheet_directory_uri()?>/img/logo--qb.svg" width="685.7" height="685.7"></div>
+            <div data-aos="fade-up" data-aos-delay="300" class="trust__card"><img src="<?=get_stylesheet_directory_uri()?>/img/logo--sage.svg" width="1000.43" height="685.7"></div>
         </div>
     </div>
 </section>

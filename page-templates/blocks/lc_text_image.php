@@ -48,7 +48,7 @@ if (isset($block['anchor'])) {
                         <?=get_field('title')?>
                     </h2>
                     <div class="fs-600">
-                        <?=get_field('content')?>
+                        <?=the_field('content')?>
                     </div>
                 </div>
             </div>
